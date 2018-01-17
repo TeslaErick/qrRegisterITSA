@@ -1,5 +1,11 @@
-var mongoose = require('mongoose');
-
-mongoose.connect('mongodb://127.0.0.1/users');
-
-module.exports = mongoose;
+exports.modelSQL = {
+    user        :   'sa',
+    password    :   'KiritoErick1326',
+    server      :   'localhost',
+    database    :   'DesarrolloAcademico',
+    pool        :   {
+        max :   '10',
+        min :   '0',
+        idleTimeoutMillis   :   30000
+    }
+}
