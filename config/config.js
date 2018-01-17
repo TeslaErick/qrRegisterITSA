@@ -1,6 +1,6 @@
 exports.modelSQL = {
     user        :   'sa',
-    password    :   'KiritoErick1326',
+    password    :   'wincaja',
     server      :   'localhost',
     database    :   'DesarrolloAcademico',
     pool        :   {
