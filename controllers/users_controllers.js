@@ -1,5 +1,7 @@
 var conn    =   require('../models/coon_model');
 var query   =   require('../models/query_model');
+var QRCode = require('qrcode')
+
 
 function getListaAlumnos(req, res, conf) {
     conn.exeConnDb(query.SQLQuery.Alumnos, 
@@ -24,9 +26,26 @@ function getInsertAlumnos(req, res, matr, nom, apell, carr, grup, aula, cargo, c
                 message :   `500: Error Interno al realizar consulta ${err}`
             })
         }else{
-            res.status(200).send({
-                message :   `Alumno Ingresado Correctamente`
-            })
+            var data = {
+                matricula : matr,
+                nombre: nom,
+                apellidos: apell,
+                carrera: carr,
+                grupo:  grup,
+                aula:   aula,
+                cargo: cargo
+                
+            }
+            var path = '../save/'+ matr +'_'+ nom+'.png'
+            QRCode.toFile(path, data,{
+                color: {
+                    dark: '#00F', // Blue modules
+                    light: '#0000' // Transparent background
+                }
+              },function (err) {
+                if (err) throw err
+                res.status(200).send({message :   `Alumno Ingresado Correctamente`})
+              })
         }
         res.end();
     }, conf)
@@ -48,7 +67,7 @@ function getUpdateAlumnos(req, res, matr, nom, apell, carr, grup, aula, cargo, c
     }, conf)
 }
 
-function getDeleteAlumnos(req, res, matr, nom, apell, carr, grup, aula, cargo, conf) {
+function getDeleteAlumnos(req, res, matr, conf) {
     conn.exeConnDb(query.SQLQuery.InstAlumnos + '('+ matr +','+ nom +','+ apell +','+ carr +','+ grup +','+ aula +','+ cargo +')',
     (data, err) =>  {
         if (err) {
@@ -81,5 +100,6 @@ function getListaCanones(req, res, conf) {
 
 module.exports = {
     getListaAlumnos,
+    getInsertAlumnos,
     getListaCanones
 }
