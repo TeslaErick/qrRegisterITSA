@@ -11,6 +11,8 @@
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.3",
     "express": "~4.15.2",
+    "instascan": "^1.0.0",
+    "jsqr": "^1.0.0",
     "morgan": "~1.8.1",
     "mssql": "^4.1.0",
     "nodemon": "^1.14.11",
