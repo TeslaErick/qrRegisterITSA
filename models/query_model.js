@@ -1,4 +1,10 @@
 exports.SQLQuery    =   {
         Alumnos:        "SELECT * FROM RegistroAlumnos",
-        Cañones:        "SELECT * FROM RegistroCanones"
+        InstAlumnos:    "INSERT INTO RegistroAlumnos (Matricula, Nombre, Apellidos, Carrera, Grupo, Aula, Cargo) VALUES",
+        UpdateAlumnos:  "",
+        DelAlumnos:     "",
+        Cañones:        "SELECT * FROM RegistroCanones",
+        InstCanones:    "",
+        UpdateCanones:  "",
+        DelCanones:     "",
 }

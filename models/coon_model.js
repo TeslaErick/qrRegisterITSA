@@ -14,7 +14,8 @@ function exeConnDb( query, callback, confdb){
         })
     }).catch((err) => {
         console.log(err)
-        callback(null, err)
+        callback(null, err);
+        conn.close();
     })
 }
 
