@@ -30,22 +30,21 @@ app.use('/users', users);
 app.use('/api/v1', api);
 
 // header CORS
-app.use((req, res, next)=>{  
+// app.use((req, res, next)=>{  
   
-  // header CORS
-  // para entornos de desarrollo esta primer cabecera contendra un * pero lo mejor seria validar ips y solo tener incluidas las validadas  especificarlas aqui
-  // solo por cuestiones de seguridad
+//   // header CORS
+//   // para entornos de desarrollo esta primer cabecera contendra un * pero lo mejor seria validar ips y solo tener incluidas las validadas  especificarlas aqui
+//   // solo por cuestiones de seguridad
   
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  // Request methods you wish to allow
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-  // Request headers you wish to allow
-  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-  // Set to true if you need the website to include cookies in the requests sent
-  // to the API (e.g. in case you use sessions)
-  res.setHeader('Access-Control-Allow-Credentials', true);
-  next();
-})
+//   res.setHeader('Access-Control-Allow-Origin', '*');
+//   // Request methods you wish to allow
+//   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+//   // Request headers you wish to allow
+//   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+//   // Set to true if you need the website to include cookies in the requests sent
+//   // to the API (e.g. in case you use sessions)
+//   res.setHeader('Access-Control-Allow-Credentials', true);
+// })
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -4,19 +4,28 @@ var cuser   = require('../controllers/users_controllers');
 var conf  = require('../config/config')
 
 // Alumnos
+router.get('/', function(req, res, next) {
+  res.render('index', { 
+    title:  'QRegister',
+    text:   'Ejemplo de ruta valida http://localhost:3001/api/v1/Alumnos'
+  });
+});
+
 router.get('/Alumnos', function(req, res, next) {
   cuser.getListaAlumnos(req, res, conf.modelSQL);
 });
 
-router.get('/Alumnos/Insert/:matr/:nom/:apell/:carr/:grup/:aula/:carg',
+router.post('/Alumnos/Insert/', //:matr/:nom/:apell/:carr/:grup/:aula/:carg
   function(req, res, next) {
-    cuser.getInsertAlumnos(req, res,req.params.matr.toUpperCase(),
-                                    req.params.nom.toUpperCase(),
-                                    req.params.apell.toUpperCase(),
-                                    req.params.carr.toUpperCase(),
-                                    req.params.grup.toUpperCase(),
-                                    req.params.aula.toUpperCase(),
-                                    req.params.carg.toUpperCase(), conf.modelSQL);
+    cuser.getInsertAlumnos(req, res,req.query.matricula.toUpperCase(),
+                                    req.query.nombre.toUpperCase(),
+                                    req.query.apellidos.toUpperCase(),
+                                    req.query.carrera.toUpperCase(),
+                                    req.query.grupo.toUpperCase(),
+                                    req.query.aula.toUpperCase(),
+                                    req.query.cargo.toUpperCase(), 
+                                    conf.modelSQL);
+    console.log(req.query.matricula)
   });
 
 router.get('/Alumnos/Update', function(req, res, next) {
