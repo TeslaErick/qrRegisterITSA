@@ -17,13 +17,13 @@ router.get('/Alumnos', function(req, res, next) {
 
 router.post('/Alumnos/Insert/', //:matr/:nom/:apell/:carr/:grup/:aula/:carg
   function(req, res, next) {
-    cuser.getInsertAlumnos(req, res,req.query.matricula.toUpperCase(),
-                                    req.query.nombre.toUpperCase(),
-                                    req.query.apellidos.toUpperCase(),
-                                    req.query.carrera.toUpperCase(),
-                                    req.query.grupo.toUpperCase(),
-                                    req.query.aula.toUpperCase(),
-                                    req.query.cargo.toUpperCase(), 
+    cuser.getInsertAlumnos(req, res,req.query.Matricula.toUpperCase(),
+                                    req.query.Nombre.toUpperCase(),
+                                    req.query.Apellidos.toUpperCase(),
+                                    req.query.Carrera.toUpperCase(),
+                                    req.query.Grupo.toUpperCase(),
+                                    req.query.Aula.toUpperCase(),
+                                    req.query.Cargo.toUpperCase(), 
                                     conf.modelSQL);
     console.log(req.query.matricula)
   });
