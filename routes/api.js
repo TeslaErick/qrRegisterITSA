@@ -17,16 +17,15 @@ router.get('/Alumnos', function(req, res, next) {
 
 router.post('/Alumnos/Insert/', //:matr/:nom/:apell/:carr/:grup/:aula/:carg
   function(req, res, next) {
-    // cuser.getInsertAlumnos(req, res,req.body.Matricula.toUpperCase(),
-    //                                 req.body.Nombre.toUpperCase(),
-    //                                 req.body.Apellidos.toUpperCase(),
-    //                                 req.body.Carrera.toUpperCase(),
-    //                                 req.body.Grupo.toUpperCase(),
-    //                                 req.body.Aula.toUpperCase(),
-    //                                 req.body.Cargo.toUpperCase(), 
-    //                                 conf.modelSQL);
-    console.log(req.body);
-    res.status(200).send({message: 'ok'})
+    cuser.getInsertAlumnos(req, res,req.query.Matricula.toUpperCase(),
+                                    req.query.Nombre.toUpperCase(),
+                                    req.query.Apellidos.toUpperCase(),
+                                    req.query.Carrera.toUpperCase(),
+                                    req.query.Grupo.toUpperCase(),
+                                    req.query.Aula.toUpperCase(),
+                                    req.query.Cargo.toUpperCase(), 
+                                    conf.modelSQL);
+    console.log(req.query.matricula)
   });
 
 router.get('/Alumnos/Update', function(req, res, next) {

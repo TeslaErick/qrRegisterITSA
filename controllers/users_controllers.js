@@ -13,14 +13,14 @@ function getListaAlumnos(req, res, conf) {
                 message :   `500: Error Interno al realizar consulta ${err}`
             })
         }else{
-            // res.setHeader('Access-Control-Allow-Origin', '*');
-            // // Request methods you wish to allow
-            // res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-            // // Request headers you wish to allow
-            // res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-            // // Set to true if you need the website to include cookies in the requests sent
-            // // to the API (e.g. in case you use sessions)
-            // res.setHeader('Access-Control-Allow-Credentials', true);
+            res.setHeader('Access-Control-Allow-Origin', '*');
+            // Request methods you wish to allow
+            res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+            // Request headers you wish to allow
+            res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+            // Set to true if you need the website to include cookies in the requests sent
+            // to the API (e.g. in case you use sessions)
+            res.setHeader('Access-Control-Allow-Credentials', true);
             res.writeHead(200,{"Content-Type" : "application/json"});
             res.status(200).write(JSON.stringify(data));
         }
@@ -42,6 +42,14 @@ function getInsertAlumnos(req, res, matr, nom, apell, carr, grup, aula, cargo, c
             QRCode.toFile(pat,info,{color: {dark: '#00F', light: '#0000'}},(err) => {
                 if (!err) console.log('done')//es.status(200).send({ message :   `Alumno Ingresado Correctamente`})
             })
+            res.setHeader('Access-Control-Allow-Origin', '*');
+            // Request methods you wish to allow
+            res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+            // Request headers you wish to allow
+            res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+            // Set to true if you need the website to include cookies in the requests sent
+            // to the API (e.g. in case you use sessions)
+            res.setHeader('Access-Control-Allow-Credentials', true);
             res.status(200).send({ message :   `Alumno Ingresado Correctamente`})
         }
         res.end();
